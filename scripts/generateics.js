@@ -7,7 +7,7 @@ $(function() {
   var date = $("#dateColumn").val() - 1,
   time = $("#timeColumn").val() - 1,
   subject = $("#subjectColumn").val() - 1,
-  block = 3,
+  block = $("#blockColumn").val() - 1,
   location = $("#locationColumn").val() - 1,
   responsible = $("#responsibleColumn").val() - 1;
 
