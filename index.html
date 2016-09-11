@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script lang="javascript" src="scripts/jquery-3.1.0.min.js"></script>
+    <script lang="javascript" src="scripts/generateics.js"></script>
+    <script lang="javascript" src="scripts/xlsx.core.min.js"></script>
+    <script lang="javascript" src="scripts/ics.js"></script>
+    <script lang="javascript" src="scripts/Blob.js"></script>
+    <script lang="javascript" src="scripts/FileSaver.js"></script>
+    <title>KlinSchem</title>
+  </head>
+
+  <body>
+    <div>
+      <p>userBlock</p>
+      <textarea id="userBlock" rows="1" cols="10"></textarea>
+    </div>
+    <div>
+      <p>userSubBlock</p>
+      <textarea id="userSubBlock" rows="1" cols="10"></textarea>
+    </div>
+    <div>
+      <p>excelfil</p>
+      <input type="file" id="excelFile">
+    </div>
+    <div>
+      <button type="button" id=submitButton>Generateics</button>
+    </div>
+  </body>
+</html>
