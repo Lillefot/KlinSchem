@@ -8,16 +8,22 @@
     <script lang="javascript" src="scripts/ics.js"></script>
     <script lang="javascript" src="scripts/Blob.js"></script>
     <script lang="javascript" src="scripts/FileSaver.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
     <title>KlinSchem</title>
   </head>
 
   <body>
     <div>
+      <header class="major">
+        <h2>KlinSchem</h2>
+        <p>Analyserar excel-filer och ger dig en kalenderfil</p>
+      </header>
+
       <p>Fungerar endast på Chrome.</p>
-      <div>
+      <div class="container">
         <p>Kan läsa följande scheman:</p>
         <ul>
-          <li>T5: Teoriveckor</li>
+          <li>T5: Teoriveckor (och andra scheman är upplagda på samma sätt)</li>
         </ul>
       </div>
 
@@ -32,36 +38,40 @@
         <textarea id="userSubBlock" rows="1" cols="20" placeholder="A1,A2,B1,B2 etc"></textarea>
       </div>
     </div>
+    <br>
     <div>
-      <h4>Extra</h4>
+      <h3>Extra</h3>
+      <p><strong>Kolumn A = 1, B = 2 etc</strong></p>
+      <p>Behöver inte ändras om excel-filen är enligt instruktionerna</p>
+      <br>
       <div>
-        <p>Datumkolumn</p>
+        <p>Datumkolumn:</p>
         <textarea id="dateColumn" rows="1" cols="10">1</textarea>
       </div>
       <div>
-        <p>Tidskolumn</p>
+        <p>Tidskolumn:</p>
         <textarea id="timeColumn" rows="1" cols="10">2</textarea>
       </div>
       <div>
-        <p>Föreläsningsnamnskolumn</p>
+        <p>Föreläsningsnamnskolumn:</p>
         <textarea id="subjectColumn" rows="1" cols="10">3</textarea>
       </div>
       <div>
-        <p>Lokalkolumn</p>
+        <p>Lokalkolumn:</p>
         <textarea id="locationColumn" rows="1" cols="10">5</textarea>
       </div>
       <div>
-        <p>Föreläsarekolumn</p>
+        <p>Föreläsarkolumn:</p>
         <textarea id="responsibleColumn" rows="1" cols="10">6</textarea>
       </div>
     </div>
     <div>
-      <p>Ladda upp excelfil (<a href="www.google.com">Se till att den är i rätt format!</a>):</p>
-      <input type="file" id="excelFile">
+      <p>Ladda upp excelfil (<a href="instructions.html">Se till att den är i rätt format!</a>):</p>
+      <label class="button"><input class="button" type="file" id="excelFile">Välj fil</label>
     </div>
     <br>
     <div>
-      <button type="button" id=submitButton>Skapa kalenderfil!</button>
+      <button class="button" type="button" id=submitButton>Skapa kalenderfil!</button>
     </div>
   </body>
 </html>

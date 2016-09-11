@@ -3,7 +3,7 @@ $(function() {
   var eventList = [];
   var arrayLength = eventList.length;
 
-
+  var name;
   var date = $("#dateColumn").val() - 1,
   time = $("#timeColumn").val() - 1,
   subject = $("#subjectColumn").val() - 1,
@@ -19,7 +19,7 @@ $(function() {
 
     for (i = 0, f = files[i]; i != files.length; ++i) {
       var reader = new FileReader();
-      var name = f.name;
+      name = f.name;
       console.log("name = " + name);
       reader.onload = function(e) {
         console.log("readerOnload");
@@ -44,6 +44,7 @@ $(function() {
 
   function generateics() {
     console.log("generateics clicked");
+    alert("Det är ditt eget ansvar att kolla att det genererade schemat stämmer överens med orginalschemat!");
     var cal = ics();
 
     var myGroup = 10,
@@ -153,7 +154,8 @@ $(function() {
     }
     }
     console.log("Download ics");
-    cal.download("klinschem");
+    var calName = "KlinSchem:" + name;
+    cal.download(calName);
   }
   $("#submitButton").click(generateics);
   $("#excelFile").change(handleFile);
