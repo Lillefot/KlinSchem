@@ -4,12 +4,12 @@ $(function() {
   var arrayLength = eventList.length;
 
 
-  var date = 0,
-  time = 1,
-  subject = 2,
+  var date = $("#dateColumn").val() - 1,
+  time = $("#timeColumn").val() - 1,
+  subject = $("#subjectColumn").val() - 1,
   block = 3,
-  location = 4,
-  responsible = 5;
+  location = $("#locationColumn").val() - 1,
+  responsible = $("#responsibleColumn").val() - 1;
 
   function handleFile(e) {
     console.log("HandleFile");

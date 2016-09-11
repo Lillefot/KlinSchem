@@ -13,19 +13,55 @@
 
   <body>
     <div>
-      <p>userBlock</p>
-      <textarea id="userBlock" rows="1" cols="10"></textarea>
+      <p>Fungerar endast på Chrome.</p>
+      <div>
+        <p>Kan läsa följande scheman:</p>
+        <ul>
+          <li>T5: Teoriveckor</li>
+        </ul>
+      </div>
+
     </div>
     <div>
-      <p>userSubBlock</p>
-      <textarea id="userSubBlock" rows="1" cols="10"></textarea>
+      <div>
+        <p>Fyll i din grupp:</p>
+        <textarea id="userBlock" rows="1" cols="20" placeholder="A,B,C eller D"></textarea>
+      </div>
+      <div>
+        <p>Fyll i din undergrupp:</p>
+        <textarea id="userSubBlock" rows="1" cols="20" placeholder="A1,A2,B1,B2 etc"></textarea>
+      </div>
     </div>
     <div>
-      <p>excelfil</p>
+      <h4>Extra</h4>
+      <div>
+        <p>Datumkolumn</p>
+        <textarea id="dateColumn" rows="1" cols="10">1</textarea>
+      </div>
+      <div>
+        <p>Tidskolumn</p>
+        <textarea id="timeColumn" rows="1" cols="10">2</textarea>
+      </div>
+      <div>
+        <p>Föreläsningsnamnskolumn</p>
+        <textarea id="subjectColumn" rows="1" cols="10">3</textarea>
+      </div>
+      <div>
+        <p>Lokalkolumn</p>
+        <textarea id="locationColumn" rows="1" cols="10">5</textarea>
+      </div>
+      <div>
+        <p>Föreläsarekolumn</p>
+        <textarea id="responsibleColumn" rows="1" cols="10">6</textarea>
+      </div>
+    </div>
+    <div>
+      <p>Ladda upp excelfil (<a href="www.google.com">Se till att den är i rätt format!</a>):</p>
       <input type="file" id="excelFile">
     </div>
+    <br>
     <div>
-      <button type="button" id=submitButton>Generateics</button>
+      <button type="button" id=submitButton>Skapa kalenderfil!</button>
     </div>
   </body>
 </html>
