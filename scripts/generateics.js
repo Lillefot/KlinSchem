@@ -3,13 +3,13 @@ $(function() {
   var eventList = [];
   var arrayLength = eventList.length;
 
-
-  var date = 0,
-  time = 1,
-  subject = 2,
-  block = 3,
-  location = 4,
-  responsible = 5;
+  var name;
+  var date = $("#dateColumn").val() - 1,
+  time = $("#timeColumn").val() - 1,
+  subject = $("#subjectColumn").val() - 1,
+  block = $("#blockColumn").val() - 1,
+  location = $("#locationColumn").val() - 1,
+  responsible = $("#responsibleColumn").val() - 1;
 
   function handleFile(e) {
     console.log("HandleFile");
@@ -19,7 +19,7 @@ $(function() {
 
     for (i = 0, f = files[i]; i != files.length; ++i) {
       var reader = new FileReader();
-      var name = f.name;
+      name = f.name;
       console.log("name = " + name);
       reader.onload = function(e) {
         console.log("readerOnload");
@@ -44,6 +44,7 @@ $(function() {
 
   function generateics() {
     console.log("generateics clicked");
+    alert("Det är ditt eget ansvar att kolla att det genererade schemat stämmer överens med orginalschemat!");
     var cal = ics();
 
     var myGroup = 10,
@@ -153,7 +154,8 @@ $(function() {
     }
     }
     console.log("Download ics");
-    cal.download("klinschem");
+    var calName = "KlinSchem:" + name;
+    cal.download(calName);
   }
   $("#submitButton").click(generateics);
   $("#excelFile").change(handleFile);
