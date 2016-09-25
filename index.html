@@ -19,17 +19,33 @@
         <p>Analyserar excel-filer och ger dig en kalenderfil</p>
       </header>
 
-      <p>Fungerar endast på Chrome.</p>
+      <p>Fungerar endast i Google Chrome.</p>
       <div class="container">
-        <p>Kan läsa följande scheman:</p>
+        <h4>Kan läsa följande scheman:</h4>
         <ul>
           <li>T5: Teoriveckor (och andra scheman är upplagda på samma sätt)</li>
         </ul>
       </div>
 
+      <div class="container">
+        <h4>Changelog:</h4>
+        <ul>
+          <li>Kan nu läsa av och göra skillnad på om det står "Grupp"
+            i föreläsningsnamnet eller om gruppindelningen står under
+            "Gruppstorlek" i schemat.</li>
+          <li>Kan nu plocka ut händelser som endast gäller din <strong>bas</strong>grupp.</li>
+        </ul>
+      </div>
+
     </div>
+    <br>
     <div>
+      <h3> Fyll i:</h3>
       <div>
+        <div>
+          <p>Fyll i din basgrupp:</p>
+          <textarea id="userGroup" rows="1" cols="20" placeholder="1,2,3,4 etc"></textarea>
+        </div>
         <p>Fyll i din grupp:</p>
         <textarea id="userBlock" rows="1" cols="20" placeholder="A,B,C eller D"></textarea>
       </div>

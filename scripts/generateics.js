@@ -11,6 +11,15 @@ $(function() {
   location = $("#locationColumn").val() - 1,
   responsible = $("#responsibleColumn").val() - 1;
 
+  var eventStartHour,
+  eventStartMinute,
+  eventEndHour,
+  eventEndMinute,
+  eventBlock,
+  eventSubject,
+  eventLocation,
+  eventResponsible;
+
   function handleFile(e) {
     console.log("HandleFile");
     var files = e.target.files;
@@ -47,7 +56,7 @@ $(function() {
     alert("Det är ditt eget ansvar att kolla att det genererade schemat stämmer överens med orginalschemat!");
     var cal = ics();
 
-    var myGroup = 10,
+    var userGroup = $("#userGroup").val(),
     userBlock = $("#userBlock").val(),
     userSubBlock = $("#userSubBlock").val(),
     myNumber = 85,
@@ -59,12 +68,14 @@ $(function() {
 
     if (~mySubBlock.indexOf("1")){
       var notMySubBlock = myBlock + "2",
-      notMySubBlockShort = myBlockShort + "2";
+      notMySubBlockShort = myBlockShort + "2",
+      notUserSubBlock = userBlock + "2";
       console.log("notMySubBlock = " + notMySubBlock);
     }
     else if (~mySubBlock.indexOf("2")){
       var notMySubBlock = myBlock + "1",
-      notMySubBlockShort = myBlockShort + "1";
+      notMySubBlockShort = myBlockShort + "1",
+      notUserSubBlock = userBlock + "1";
       console.log("notMySubBlock = " + notMySubBlock);
     }
 
@@ -73,14 +84,15 @@ $(function() {
       var eventExcel = eventList[i];
 
       /*Reset variables*/
-      var eventStartHour,
-      eventStartMinute,
-      eventEndHour,
-      eventEndMinute,
-      eventBlock,
-      eventSubject,
-      eventLocation,
-      eventResponsible;
+      eventStartHour = "",
+      eventStartMinute = "",
+      eventEndHour = "",
+      eventEndMinute = "",
+      eventBlock = "",
+      eventSubject = "",
+      eventLocation = "",
+      eventResponsible = "";
+
       var isMyEvent = "no";
 
 
@@ -135,6 +147,21 @@ $(function() {
       if (eventSubject && eventTime) {
         if (!~eventSubject.indexOf("Grupp")){
           isMyEvent = "yes";
+          if (~eventBlock.indexOf("Grp")){
+            isMyEvent = "no";
+            if (~eventBlock.indexOf(userBlock)){
+              isMyEvent = "yes";
+              if (~eventBlock.indexOf(userSubBlock)){
+                isMyEvent = "yes";
+              }
+              else if (~eventBlock.indexOf(notUserSubBlock)){
+                isMyEvent = "no";
+              }
+            }
+            else if (~eventBlock.indexOf(userGroup)){
+              isMyEvent = "yes";
+            }
+          }
         }
         else if (~eventSubject.indexOf(myBlock)){
           isMyEvent = "yes";
@@ -145,6 +172,7 @@ $(function() {
             isMyEvent = "no";
           }
         }
+
         console.log("isMyEvent = " + isMyEvent);
       }
       /*Add event to calendar*/
