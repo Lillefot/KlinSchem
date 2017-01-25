@@ -59,7 +59,7 @@ $(function() {
     var userGroup = $("#userGroup").val(),
     userBlock = $("#userBlock").val(),
     userSubBlock = $("#userSubBlock").val(),
-    myNumber = 85,
+    userNumber = 85,
     myBlock = "Grupp " + userBlock,
     myBlockShort = "Grp " + userBlock,
     mySubBlock = "Grupp " + userSubBlock,
@@ -113,8 +113,8 @@ $(function() {
         eventEndHour = eventTime[2];
         eventEndMinute = eventTime[3];
 
-        var eventStart = new Date(2016,eventMonth,eventDay,eventStartHour, eventStartMinute);
-        var eventEnd = new Date(2016,eventMonth,eventDay,eventEndHour, eventEndMinute);
+        var eventStart = new Date(2017,eventMonth,eventDay,eventStartHour, eventStartMinute);
+        var eventEnd = new Date(2017,eventMonth,eventDay,eventEndHour, eventEndMinute);
       }
       console.log("Event start = " + eventStart + "\n" + "Event end = " + eventEnd);
 
@@ -160,6 +160,14 @@ $(function() {
             }
             else if (~eventBlock.indexOf(userGroup)){
               isMyEvent = "yes";
+            }
+          }
+          else if (~eventBlock.indexOf("Kand")){
+            if (~eventBlock.indexOf(userNumber)){
+              isMyEvent = "yes";
+            }
+            else {
+              isMyEvent = "no";
             }
           }
         }

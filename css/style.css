@@ -1089,3 +1089,9 @@
 		#footer .icons a {
 			color: #bbb;
 		}
+
+/* Custom */
+
+#extra {
+	display: none;
+}

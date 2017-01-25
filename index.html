@@ -8,6 +8,7 @@
     <script lang="javascript" src="scripts/ics.js"></script>
     <script lang="javascript" src="scripts/Blob.js"></script>
     <script lang="javascript" src="scripts/FileSaver.js"></script>
+    <script lang="javascript" src="scripts/javascript.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>KlinSchem</title>
   </head>
@@ -23,7 +24,7 @@
       <div class="container">
         <h4>Kan läsa följande scheman:</h4>
         <ul>
-          <li>T5: Teoriveckor (och andra scheman är upplagda på samma sätt)</li>
+          <li>T5: Teoriveckor (och andra scheman som är upplagda på samma sätt)</li>
         </ul>
       </div>
 
@@ -56,38 +57,40 @@
     </div>
     <br>
     <div>
-      <h3>Extra</h3>
-      <p><strong>Kolumn A = 1, B = 2 etc</strong></p>
-      <p>Behöver inte ändras om excel-filen är enligt instruktionerna</p>
-      <br>
-      <div>
-        <p>Datumkolumn:</p>
-        <textarea id="dateColumn" rows="1" cols="10">1</textarea>
-      </div>
-      <div>
-        <p>Tidskolumn:</p>
-        <textarea id="timeColumn" rows="1" cols="10">2</textarea>
-      </div>
-      <div>
-        <p>Föreläsningsnamnskolumn:</p>
-        <textarea id="subjectColumn" rows="1" cols="10">3</textarea>
-      </div>
-      <div>
-        <p>Gruppindelningskolumn:</p>
-        <textarea id="blockColumn" rows="1" cols="10">4</textarea>
-      </div>
-      <div>
-        <p>Lokalkolumn:</p>
-        <textarea id="locationColumn" rows="1" cols="10">5</textarea>
-      </div>
-      <div>
-        <p>Föreläsarkolumn:</p>
-        <textarea id="responsibleColumn" rows="1" cols="10">6</textarea>
-      </div>
-    </div>
-    <div>
       <p>Ladda upp excelfil (<a href="instructions.html">Se till att den är i rätt format!</a>):</p>
       <label class="button"><input class="button" type="file" id="excelFile">Välj fil</label>
+    </div>
+    <div>
+      <button class="button" type="button" id="extraHeader">Extra</button>
+      <div id="extra">
+        <p><strong>Kolumn A = 1, B = 2 etc</strong></p>
+        <p>Behöver inte ändras om excel-filen är enligt instruktionerna</p>
+        <br>
+        <div>
+          <p>Datumkolumn:</p>
+          <textarea id="dateColumn" rows="1" cols="10">1</textarea>
+        </div>
+        <div>
+          <p>Tidskolumn:</p>
+          <textarea id="timeColumn" rows="1" cols="10">2</textarea>
+        </div>
+        <div>
+          <p>Föreläsningsnamnskolumn:</p>
+          <textarea id="subjectColumn" rows="1" cols="10">3</textarea>
+        </div>
+        <div>
+          <p>Gruppindelningskolumn:</p>
+          <textarea id="blockColumn" rows="1" cols="10">4</textarea>
+        </div>
+        <div>
+          <p>Lokalkolumn:</p>
+          <textarea id="locationColumn" rows="1" cols="10">5</textarea>
+        </div>
+        <div>
+          <p>Föreläsarkolumn:</p>
+          <textarea id="responsibleColumn" rows="1" cols="10">6</textarea>
+        </div>
+      </div>
     </div>
     <br>
     <div>
