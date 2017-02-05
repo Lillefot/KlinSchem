@@ -4,6 +4,8 @@ $(function() {
   var arrayLength = eventList.length;
 
   var name;
+  var currentYear = new Date().getFullYear();
+
   var date = $("#dateColumn").val() - 1,
   time = $("#timeColumn").val() - 1,
   subject = $("#subjectColumn").val() - 1,
@@ -59,7 +61,7 @@ $(function() {
     var userGroup = $("#userGroup").val(),
     userBlock = $("#userBlock").val(),
     userSubBlock = $("#userSubBlock").val(),
-    userNumber = 85,
+    userNumber = $("#userNumber").val(),
     myBlock = "Grupp " + userBlock,
     myBlockShort = "Grp " + userBlock,
     mySubBlock = "Grupp " + userSubBlock,
@@ -113,8 +115,8 @@ $(function() {
         eventEndHour = eventTime[2];
         eventEndMinute = eventTime[3];
 
-        var eventStart = new Date(2017,eventMonth,eventDay,eventStartHour, eventStartMinute);
-        var eventEnd = new Date(2017,eventMonth,eventDay,eventEndHour, eventEndMinute);
+        var eventStart = new Date(currentYear,eventMonth,eventDay,eventStartHour, eventStartMinute);
+        var eventEnd = new Date(currentYear,eventMonth,eventDay,eventEndHour, eventEndMinute);
       }
       console.log("Event start = " + eventStart + "\n" + "Event end = " + eventEnd);
 
@@ -149,6 +151,8 @@ $(function() {
           isMyEvent = "yes";
           if (~eventBlock.indexOf("Grp")){
             isMyEvent = "no";
+            var groupRange = eventBlock.match(/\d+/g);
+            console.log("groupRange = " + groupRange);
             if (~eventBlock.indexOf(userBlock)){
               isMyEvent = "yes";
               if (~eventBlock.indexOf(userSubBlock)){
@@ -158,12 +162,21 @@ $(function() {
                 isMyEvent = "no";
               }
             }
-            else if (~eventBlock.indexOf(userGroup)){
+            else if (groupRange) {
+             var lastGroup = groupRange.length - 1;
+             console.log("lastGroup = " + lastGroup);
+             console.log(groupRange[0] + " " + groupRange[lastGroup]);
+             if ((userGroup >= +groupRange[0]) && (userGroup <= +groupRange[lastGroup])){
               isMyEvent = "yes";
+             }
             }
           }
           else if (~eventBlock.indexOf("Kand")){
-            if (~eventBlock.indexOf(userNumber)){
+
+            var kandRange = eventBlock.match(/\d+/g);
+            console.log("kandRange = " + kandRange);
+
+            if (~kandRange.indexOf(userNumber)){
               isMyEvent = "yes";
             }
             else {
