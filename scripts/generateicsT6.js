@@ -5,6 +5,7 @@ $(function() {
 
   var name;
   var currentYear = new Date().getFullYear();
+  var nextYear = currentYear.setYear(+1);
 
   var isMyEvent = "no";
   var t6IsMyWeek = "no";
@@ -109,8 +110,14 @@ $(function() {
         eventEndHour = eventTime[2],
         eventEndMinute = eventTime[3];
 
-        eventStart = new Date(currentYear,eventMonth,eventDay,eventStartHour, eventStartMinute);
-        eventEnd = new Date(currentYear,eventMonth,eventDay,eventEndHour, eventEndMinute);
+        if (eventMonth === 0){
+          eventStart = new Date(nextYear,eventMonth,eventDay,eventStartHour, eventStartMinute);
+          eventEnd = new Date(nextYear,eventMonth,eventDay,eventEndHour, eventEndMinute);
+        }
+        else {
+          eventStart = new Date(currentYear,eventMonth,eventDay,eventStartHour, eventStartMinute);
+          eventEnd = new Date(currentYear,eventMonth,eventDay,eventEndHour, eventEndMinute);
+        }
       }
       console.log("Event start = " + eventStart + "\n" + "Event end = " + eventEnd);
 
