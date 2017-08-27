@@ -5,7 +5,7 @@ $(function() {
 
   var name;
   var currentYear = new Date().getFullYear();
-  var nextYear = currentYear.setYear(+1);
+  var nextYear = new Date(currentYear +1);
 
   var isMyEvent = "no";
   var t6IsMyWeek = "no";
