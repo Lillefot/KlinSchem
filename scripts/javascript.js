@@ -23,6 +23,15 @@ $(function() {
         $("#locationColumn").val('4');
         $("#responsibleColumn").val('5');
         break;
+      case "7":
+        $("#t5Fields").show();
+        $("#dateColumn").val('1');
+        $("#timeColumn").val('2');
+        $("#subjectColumn").val('3');
+        $("#blockColumn").val('6');
+        $("#locationColumn").val('4');
+        $("#responsibleColumn").val('5');
+        break;
       default:
         $("#t5Fields").hide();
         break;
