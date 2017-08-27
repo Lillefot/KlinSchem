@@ -297,13 +297,13 @@ $(function() {
         var userBlockGroup,
         isMyEvent = "no";
 
-        if (userBlock === ("1" || "2" || "3")){
+        if (userGroup === ("1" || "2" || "3")){
           userBlockGroup = t7BlockGroups[0];
         }
-        else if (userBlock === ("4" || "5" || "6")){
+        else if (userGroup === ("4" || "5" || "6")){
           userBlockGroup = t7BlockGroups[1];
         }
-        else if (userBlock === ("7" || "8" || "9")){
+        else if (userGroup === ("7" || "8" || "9")){
           userBlockGroup = t7BlockGroups[2];
         }
         else {
