@@ -292,12 +292,83 @@ $(function() {
 
       }
 
+      function decideEventT7() {
+        var t7BlockGroups = ["1-3", "4-6", "7-9", "10-12"]
+        var userBlockGroup,
+        isMyEvent = "no";
+
+        if (userBlock === ("1" || "2" || "3")){
+          userBlockGroup = t6BlockGroups[0];
+        }
+        else if (userBlock === ("4" || "5" || "6")){
+          userBlockGroup = t6BlockGroups[1];
+        }
+        else if (userBlock === ("7" || "8" || "9")){
+          userBlockGroup = t6BlockGroups[2];
+        }
+        else {
+          userBlockGroup = t6BlockGroups[3];
+        }
+
+        console.log(userBlockGroup);
+
+        for (var i = 0; i < t6BlockGroups.length; i++){
+          if (~eventSubject.indexOf(t6BlockGroups[i])) {
+            if (t6BlockGroups[i] === userBlockGroup) {
+              t6IsMyWeek = "yes";
+              console.log("yes");
+              break;
+            }
+            else {
+              console.log("no")
+              t6IsMyWeek = "no";
+            }
+
+          }
+        }
+
+        console.log("isMyWeek = " + t6IsMyWeek);
+
+        if (eventSubject && eventTime){
+          isMyEvent = t6IsMyWeek;
+          console.log("isMyEvent1 = " + isMyEvent);
+          if (~eventSubject.indexOf("Kand")){
+
+            var kandRange = eventSubject.match(/\d+/g);
+            console.log("kandRange = " + kandRange);
+
+            var lastKand = kandRange.length - 1;
+            console.log("lastKand = " + lastKand);
+            console.log(kandRange[0] + " " + kandRange[lastKand]);
+            if ((userNumber >= +kandRange[0]) && (userNumber <= +kandRange[lastKand])){
+             isMyEvent = "yes";
+            }
+            else isMyEvent = "no";
+          }
+          if (~eventSubject.indexOf("Grupp")){
+            if (!~eventSubject.indexOf(myBlock)){
+              isMyEvent = "no";
+            }
+          }
+        }
+
+        /*Add event to calendar*/
+        if (isMyEvent === "yes"){
+        console.log("AddEvent");
+        cal.addEvent(eventSubject, eventResponsible, eventLocation, eventStart, eventEnd);
+      }
+
+
+
       switch (userSemester) {
         case "5":
           decideEventT5();
           break;
         case "6":
           decideEventT6();
+          break;
+        case "7":
+          decideEventT7();
           break;
         }
       }
