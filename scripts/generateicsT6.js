@@ -294,6 +294,7 @@ $(function() {
 
       function decideEventT7() {
         var userGroup = $("#userGroup").val();
+        console.log("UserGroup = " + userGroup);
         var t7BlockGroups = ["1-3", "4-6", "7-9", "10-12"]
         var userBlockGroup,
         isMyEvent = "no";
