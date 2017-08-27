@@ -298,39 +298,39 @@ $(function() {
         isMyEvent = "no";
 
         if (userBlock === ("1" || "2" || "3")){
-          userBlockGroup = t6BlockGroups[0];
+          userBlockGroup = t7BlockGroups[0];
         }
         else if (userBlock === ("4" || "5" || "6")){
-          userBlockGroup = t6BlockGroups[1];
+          userBlockGroup = t7BlockGroups[1];
         }
         else if (userBlock === ("7" || "8" || "9")){
-          userBlockGroup = t6BlockGroups[2];
+          userBlockGroup = t7BlockGroups[2];
         }
         else {
-          userBlockGroup = t6BlockGroups[3];
+          userBlockGroup = t7BlockGroups[3];
         }
 
         console.log(userBlockGroup);
 
-        for (var i = 0; i < t6BlockGroups.length; i++){
-          if (~eventSubject.indexOf(t6BlockGroups[i])) {
-            if (t6BlockGroups[i] === userBlockGroup) {
-              t6IsMyWeek = "yes";
+        for (var i = 0; i < t7BlockGroups.length; i++){
+          if (~eventSubject.indexOf(t7BlockGroups[i])) {
+            if (t7BlockGroups[i] === userBlockGroup) {
+              t7IsMyWeek = "yes";
               console.log("yes");
               break;
             }
             else {
               console.log("no")
-              t6IsMyWeek = "no";
+              t7IsMyWeek = "no";
             }
 
           }
         }
 
-        console.log("isMyWeek = " + t6IsMyWeek);
+        console.log("isMyWeek = " + t7IsMyWeek);
 
         if (eventSubject && eventTime){
-          isMyEvent = t6IsMyWeek;
+          isMyEvent = t7IsMyWeek;
           console.log("isMyEvent1 = " + isMyEvent);
           if (~eventSubject.indexOf("Kand")){
 
@@ -357,6 +357,7 @@ $(function() {
         console.log("AddEvent");
         cal.addEvent(eventSubject, eventResponsible, eventLocation, eventStart, eventEnd);
       }
+    }
 
 
 
