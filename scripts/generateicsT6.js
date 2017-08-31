@@ -316,13 +316,13 @@ $(function() {
           console.log("notMySubBlock = " + notMySubBlock);
         }
 
-        if (userGroup === "1" || userBlock === "2" || userBlock === "3"){
+        if (userGroup === "1" || userGroup === "2" ||userGroup === "3"){
           userBlockGroup = t7BlockGroups[0];
         }
-        else if (userGroup === "4" || userBlock === "5" || userBlock === "6"){
+        else if (userGroup === "4" ||userGroup === "5" ||userGroup === "6"){
           userBlockGroup = t7BlockGroups[1];
         }
-        else if (userGroup === "7" || userBlock === "8" || userBlock === "9"){
+        else if (userGroup === "7" ||userGroup === "8" ||userGroup === "9"){
           userBlockGroup = t7BlockGroups[2];
         }
         else {
