@@ -229,13 +229,13 @@ $(function() {
         var userBlockGroup,
         isMyEvent = "no";
 
-        if (userBlock === ("A" || "B" || "C")){
+        if (userBlock === "A" || userBlock === "B" || userBlock === "C"){
           userBlockGroup = t6BlockGroups[0];
         }
-        else if (userBlock === ("D" || "E" || "F")){
+        else if (userBlock === "D" || userBlock === "E" || userBlock === "F"){
           userBlockGroup = t6BlockGroups[1];
         }
-        else if (userBlock === ("G" || "H" || "I")){
+        else if (userBlock === "G" || userBlock === "H" || userBlock === "I"){
           userBlockGroup = t6BlockGroups[2];
         }
         else {
@@ -316,20 +316,20 @@ $(function() {
           console.log("notMySubBlock = " + notMySubBlock);
         }
 
-        if (userGroup === ("1" || "2" || "3")){
+        if (userGroup === "1" || userBlock === "2" || userBlock === "3"){
           userBlockGroup = t7BlockGroups[0];
         }
-        else if (userGroup === ("4" || "5" || "6")){
+        else if (userGroup === "4" || userBlock === "5" || userBlock === "6"){
           userBlockGroup = t7BlockGroups[1];
         }
-        else if (userGroup === ("7" || "8" || "9")){
+        else if (userGroup === "7" || userBlock === "8" || userBlock === "9"){
           userBlockGroup = t7BlockGroups[2];
         }
         else {
           userBlockGroup = t7BlockGroups[3];
         }
 
-        console.log(userBlockGroup);
+        console.log("userSnurra = "  + userBlockGroup);
 
         for (var i = 0; i < t7BlockGroups.length; i++){
           if (~eventSubject.indexOf(t7BlockGroups[i])) {
