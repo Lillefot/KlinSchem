@@ -299,6 +299,23 @@ $(function() {
         var userBlockGroup,
         isMyEvent = "no";
 
+        userSubBlock = $("#userSubBlock").val(), //UroNefro
+        mySubBlock = "Grupp " + userSubBlock,
+        mySubBlockShort = "Grp " + userSubBlock;
+
+        if (~mySubBlock.indexOf("1")){ //UroNefro
+          var notMySubBlock = myBlock + "2",
+          notMySubBlockShort = myBlockShort + "2",
+          notUserSubBlock = userBlock + "2";
+          console.log("notMySubBlock = " + notMySubBlock);
+        }
+        else if (~mySubBlock.indexOf("2")){
+          var notMySubBlock = myBlock + "1",
+          notMySubBlockShort = myBlockShort + "1",
+          notUserSubBlock = userBlock + "1";
+          console.log("notMySubBlock = " + notMySubBlock);
+        }
+
         if (userGroup === ("1" || "2" || "3")){
           userBlockGroup = t7BlockGroups[0];
         }
@@ -334,7 +351,7 @@ $(function() {
         if (eventSubject && eventTime){
           isMyEvent = t7IsMyWeek;
           console.log("isMyEvent1 = " + isMyEvent);
-          if (~eventSubject.indexOf("Kand")){
+          if (~eventSubject.indexOf("Kand") && !~eventSubject.indexOf("Kandidatmottagning")){
 
             var kandRange = eventSubject.match(/\d+/g);
             console.log("kandRange = " + kandRange);
@@ -347,8 +364,13 @@ $(function() {
             }
             else isMyEvent = "no";
           }
-          if (~eventSubject.indexOf("Grupp")){
-            if (!~eventSubject.indexOf(myBlock)){
+          else if (~eventSubject.indexOf("Grupp")){
+            if (!~eventSubject.indexOf(userGroup)){
+              isMyEvent = "no";
+            }
+          }
+          else if (~eventSubject.indexOf("Grp")){ //UroNefro
+            if (!~eventSubject.indexOf(userSubBlock)){
               isMyEvent = "no";
             }
           }
