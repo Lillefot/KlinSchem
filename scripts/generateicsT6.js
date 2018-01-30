@@ -24,7 +24,7 @@ $(function() {
 
   var chrome   = navigator.userAgent.indexOf('Chrome') > -1;
   if (!chrome) {
-        alert("KlinSchem fungerar endast i Google Chrome!");
+        alert("KlinSchem fungerar endast i Google Chrome på datorn!");
   }
 
 
