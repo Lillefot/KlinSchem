@@ -6,6 +6,7 @@ $(function() {
   var name;
   var currentYear = new Date().getFullYear();
   var nextYear = new Date(currentYear +1);
+  var currentMonth = new Date().getMonth();
 
   var isMyEvent = "no";
   var t6IsMyWeek = "no";
@@ -110,7 +111,7 @@ $(function() {
         eventEndHour = eventTime[2],
         eventEndMinute = eventTime[3];
 
-        if (eventMonth === 0){
+        if (eventMonth === 0 && !(currentMonth in [0,1,2,3,4,5])){
           eventStart = new Date(nextYear,eventMonth,eventDay,eventStartHour, eventStartMinute);
           eventEnd = new Date(nextYear,eventMonth,eventDay,eventEndHour, eventEndMinute);
         }
@@ -171,6 +172,7 @@ $(function() {
             isMyEvent = "yes";
             if (~eventBlock.indexOf("Grp")){
               isMyEvent = "no";
+              console.log("userBlock = " + userBlock);
               var groupRange = eventBlock.match(/\d+/g);
               console.log("groupRange = " + groupRange);
               if (~eventBlock.indexOf(userBlock)){
@@ -182,7 +184,7 @@ $(function() {
                   isMyEvent = "no";
                 }
               }
-              else if ((groupRange) && (!~eventBlock.indexOf("halvan"))) {
+              else if ((groupRange) && (!~eventBlock.indexOf("halvan")) && (!~eventBlock.indexOf("Grp A")) && (!~eventBlock.indexOf("Grp B")) && (!~eventBlock.indexOf("Grp C")) && (!~eventBlock.indexOf("Grp D"))) {
                var lastGroup = groupRange.length - 1;
                console.log("lastGroup = " + lastGroup);
                console.log(groupRange[0] + " " + groupRange[lastGroup]);
@@ -302,18 +304,21 @@ $(function() {
         userSubBlock = $("#userSubBlock").val(), //UroNefro
         mySubBlock = "Grupp " + userSubBlock,
         mySubBlockShort = "Grp " + userSubBlock;
+        userBlockShort = "Grp " + userBlock;
 
         if (~mySubBlock.indexOf("1")){ //UroNefro
           var notMySubBlock = myBlock + "2",
           notMySubBlockShort = myBlockShort + "2",
           notUserSubBlock = userBlock + "2";
           console.log("notMySubBlock = " + notMySubBlock);
+          console.log("notUserSubBlock = " + notUserSubBlock);
         }
         else if (~mySubBlock.indexOf("2")){
           var notMySubBlock = myBlock + "1",
           notMySubBlockShort = myBlockShort + "1",
           notUserSubBlock = userBlock + "1";
           console.log("notMySubBlock = " + notMySubBlock);
+          console.log("notUserSubBlock = " + notUserSubBlock);
         }
 
         if (userGroup === "1" || userGroup === "2" ||userGroup === "3"){
@@ -372,6 +377,9 @@ $(function() {
           else if (~eventSubject.indexOf("Grp")){ //UroNefro
             if (!~eventSubject.indexOf(userSubBlock)){
               isMyEvent = "no";
+              if (!~eventSubject.indexOf(notUserSubBlock) && ~eventSubject.indexOf(userBlockShort)){
+                isMyEvent = "yes";
+              }
             }
           }
         }
