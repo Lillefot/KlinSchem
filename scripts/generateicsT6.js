@@ -22,6 +22,11 @@ $(function() {
   eventLocation,
   eventResponsible;
 
+  var chrome   = navigator.userAgent.indexOf('Chrome') > -1;
+  if (!chrome) {
+        alert("KlinSchem fungerar endast i Google Chrome!");
+  }
+
 
   function handleFile(e) {
     console.log("HandleFile");
@@ -57,7 +62,7 @@ $(function() {
 
   function generateics() {
     console.log("generateics clicked");
-    alert("Det är ditt eget ansvar att kolla att det genererade schemat stämmer överens med orginalschemat!");
+    alert("Det är ditt eget ansvar att kolla att det genererade schemat stämmer överens med orginalschemat!\n\n TIPS: Importera i en ny kalender så kan du ta bort hela kalendern om något blir fel.");
     var cal = ics();
 
     var date = $("#dateColumn").val() - 1,
